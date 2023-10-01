@@ -70,7 +70,7 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h5>Penduduk Berdasarkan Jenis Kelamin</h5>
+                <h5>Jumlah Wisatawan</h5>
             </div>
             <div class="card-body">
                 <div id="chart">
@@ -128,74 +128,36 @@
 <script>
      var options = {
           series: [{
-          name: 'Laki-Laki',
-          data: [5652, 28511, 65200, 64907, 45766, 16341]},
-          {
-          name: 'Perempuan',
-          data: [6271, 28459, 64907, 69209, 45132, 16100]
-        }, 
-    ],
-    
+            name: "Jumlah Wisatawan",
+            data: [14989, 14919, 16504, 17670, 18017, 56970, 48067, 29118, 64617, 58067, 36199, 72807]
+        }],
           chart: {
-          type: 'bar',
-          height: 350
-        },
-        plotOptions: {
-          bar: {
-            horizontal: false,
-            columnWidth: '55%',
-            endingShape: 'rounded'
-          },
+          height: 350, 
+          type: 'line',
+          color : '#49e3c4',
+          zoom: {
+            enabled: false
+          }
         },
         dataLabels: {
           enabled: false
         },
         stroke: {
-          show: true,
-          width: 2,
-          colors: ['transparent']
+          curve: 'straight'
+        },
+        title: {
+          text: 'Jumlah Wisatawan',
+          align: 'left'
+        },
+        grid: {
+          row: {
+            colors: ['#daede9', 'transparent'], // takes an array which will be repeated on columns
+            opacity: 0.5
+          },
         },
         xaxis: {
-          categories: ['Kuta Selatan', 'Kuta', 'Kuta Utara', 'Mengwi', 'Abiansem', 'Petang'],
-          title: {
-            text: 'Kecamatan'
-          }
-        },
-        yaxis: {
-          title: {
-            text: 'Jiwa'
-          }
-        },
-        fill: {
-          opacity: 1
-        },
-        tooltip: {
-          y: {
-            formatter: function (val) {
-              return  + val + " jiwa"
-            }
-          }
-        },
-        plotOptions: {
-          bar: {horizontal: false,
-            columnWidth: '55%',
-            endingShape: 'rounded',
-            dataLabels: {
-              position: 'top', // top, center, bottom
-            },
-          }
-        },
-        dataLabels: {
-          enabled: true,
-          formatter: function (val) {
-            return val ;
-          },
-          offsetY: -20,
-          style: {
-            fontSize: '12px',
-            colors: ["#304758"]
-          }
-        },
+          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Nov', 'Oct', 'Dec'],
+        }
         };
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
